@@ -44,6 +44,10 @@ PRODUCT_COPY_FILES += \
     device/lge/thundercls670/prebuilt/system/lib/modules/tun.ko:system/lib/modules/tun.ko \
     device/lge/thundercls670/prebuilt/system/lib/modules/wireless.ko:system/lib/modules/wireless.ko
 
+# Touchscreen config file
+PRODUCT_COPY_FILES += \
+    device/lge/thundercls670/prebuilt/system/usr/idc/touch_mcs6000.idc:/system/usr/idc/touch_mcs6000.idc
+
 PRODUCT_PACKAGES += \
     librs_jni \
     libmm-omxcore \
@@ -53,9 +57,6 @@ PRODUCT_PACKAGES += \
     dump_image \
     erase_image \
     e2fsck
-
-#DISABLE_DEXPREOPT := false
-
 
 # Publish that we support the live wallpaper feature.
 PRODUCT_COPY_FILES += \
