@@ -20,9 +20,5 @@
 # In particular, you can add lunch options with the add_lunch_combo
 # function: add_lunch_combo generic-eng
 
-add_lunch_combo cyanogen_thunderc_VM670-eng
-add_lunch_combo cyanogen_thunderc_LS670-eng
-add_lunch_combo cyanogen_thunderc_MS690-eng
-add_lunch_combo cyanogen_thunderc_US670-eng
-add_lunch_combo cyanogen_thunderc_VS660-eng
-add_lunch_combo cyanogen_thunderc_LW690-eng
+#add_lunch_combo lge_thunderc_ls670-userdebug
+#add_lunch_combo lge_thunderc_ls670-eng

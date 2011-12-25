@@ -201,7 +201,7 @@ service wpa_supplicant /system/bin/wpa_supplicant -Dwext -iwlan0 -c/data/misc/wi
 	oneshot
 #	console
 
-#service dhcpcd /system/bin/dhcpcd -B wlan0
+#service dhcpcd /system/bin/dhcpcd -B
 service dhcpcd_wlan0 /system/bin/dhcpcd -BKLA wlan0 # disable ARP operation
 	disabled
 	oneshot

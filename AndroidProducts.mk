@@ -1,2 +1,2 @@
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/thunderc.mk
+    $(LOCAL_DIR)/full_thunderc.mk
