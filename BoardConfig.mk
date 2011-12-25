@@ -8,10 +8,27 @@ TARGET_CPU_ABI2 := armeabi
 TARGET_BOARD_PLATFORM_GPU := qcom-adreno200
 TARGET_BOOTLOADER_BOARD_NAME := thunderc
 
-TARGET_LIBAGL_USE_GRALLOC_COPYBITS := true
-BOARD_NO_RGBX_8888 := true
-BOARD_USE_NASTY_PTHREAD_CREATE_HACK := true
-TARGET_USES_16BPPSURFACE_FOR_OPAQUE := true
+# VER_0_6_X does not search networks
+WPA_SUPPLICANT_VERSION := VER_0_5_X
+BOARD_WPA_SUPPLICANT_DRIVER := WEXT
+BOARD_WLAN_DEVICE := bcm4325
+WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wireless.ko"
+WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/wl/rtecdc.bin nvram_path=/system/etc/wl/nvram.txt"
+WIFI_DRIVER_MODULE_NAME := wireless
+## Tethering is not working now
+WIFI_DRIVER_FW_STA_PATH := "/system/etc/wl/rtecdc.bin"
+WIFI_DRIVER_FW_AP_PATH := "/system/etc/wl/rtecdc-apsta.bin"
+WIFI_DRIVER_HAS_LGE_SOFTAP := true
+
+BOARD_EGL_CFG := device/lge/thundercls670/prebuilt/system/lib/egl/egl.cfg
+BOARD_USES_OVERLAY := true
+#USE_OPENGL_RENDERER := true
+#BOARD_USES_HGL := true
+
+COMMON_GLOBAL_CFLAGS += \
+    -DMISSING_EGL_EXTERNAL_IMAGE \
+    -DMISSING_EGL_PIXEL_FORMAT_YV12 \
+    -DMISSING_GRALLOC_BUFFERS
 
 TARGET_PROVIDES_INIT_TARGET_RC := true
 
@@ -40,20 +57,6 @@ BOARD_GPS_LIBRARIES := libloc
 BOARD_USE_USB_MASS_STORAGE_SWITCH := true
 BOARD_CUSTOM_USB_CONTROLLER := ../../device/lge/thunderc/netd/UsbController.cpp
 
-# VER_0_6_X does not search networks
-WPA_SUPPLICANT_VERSION := VER_0_5_X
-BOARD_WPA_SUPPLICANT_DRIVER := WEXT
-BOARD_WLAN_DEVICE := bcm4325
-WIFI_DRIVER_MODULE_PATH := "/system/lib/modules/wireless.ko"
-WIFI_DRIVER_MODULE_ARG := "firmware_path=/system/etc/wl/rtecdc.bin nvram_path=/system/etc/wl/nvram.txt"
-WIFI_DRIVER_MODULE_NAME := wireless
-## Tethering is not working now
-WIFI_DRIVER_FW_STA_PATH := "/system/etc/wl/rtecdc.bin"
-WIFI_DRIVER_FW_AP_PATH := "/system/etc/wl/rtecdc-apsta.bin"
-WIFI_DRIVER_HAS_LGE_SOFTAP := true
-
-BOARD_EGL_CFG := device/lge/thundercls670/prebuilt/system/lib/egl/egl.cfg
-
 BOARD_KERNEL_CMDLINE := mem=477M console=ttyMSM2,115200n8 androidboot.hardware=thunderc
 BOARD_KERNEL_BASE := 0x12200000
 BOARD_PAGE_SIZE := 0x00000800
@@ -75,7 +78,7 @@ ENABLE_JSC_JIT := false
 
 BUILD_WITH_FULL_STAGEFRIGHT := true
 TARGET_PROVIDES_LIBAUDIO := true 
-# TARGET_PROVIDES_LIBRIL = vendor/lge/thunderc/proprietary/system/lib/libril-qc-1.so
+TARGET_PROVIDES_LIBRIL = vendor/lge/thundercls670/proprietary/libril-qc-1.so
 
 BOARD_HAVE_FM_RADIO := true
 BOARD_GLOBAL_CFLAGS += -DHAVE_FM_RADIO

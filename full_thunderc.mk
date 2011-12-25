@@ -56,7 +56,10 @@ PRODUCT_PACKAGES += \
     flash_image \
     dump_image \
     erase_image \
-    e2fsck
+    e2fsck \
+    gralloc.msm7k \
+    audio_policy.thunderc \
+    audio.primary.thunderc
 
 # Publish that we support the live wallpaper feature.
 PRODUCT_COPY_FILES += \
@@ -110,6 +113,7 @@ PRODUCT_COPY_FILES += \
     frameworks/base/data/etc/android.hardware.touchscreen.multitouch.xml:system/etc/permissions/android.hardware.touchscreen.multitouch.xml
 
 PRODUCT_COPY_FILES += \
+    device/lge/thundercls670/prebuilt/system/etc/vold.fstab:system/etc/vold.fstab \
     device/lge/thundercls670/prebuilt/system/etc/media_profiles.xml:system/etc/media_profiles.xml \
     device/lge/thundercls670/prebuilt/system/etc/init.d/mvdalvik.sh:system/etc/init.d/01mvdalvik 
 
