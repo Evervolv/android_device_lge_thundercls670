@@ -41,12 +41,22 @@ PRODUCT_COPY_FILES += \
 
 # Kernel modules
 PRODUCT_COPY_FILES += \
-    device/lge/thundercls670/prebuilt/system/lib/modules/tun.ko:system/lib/modules/tun.ko \
+    device/lge/thundercls670/prebuilt/system/lib/modules/dma_test.ko:system/lib/modules/dma_test.ko \
+    device/lge/thundercls670/prebuilt/system/lib/modules/librasdioif.ko:system/lib/modules/librasdioif.ko \
+    device/lge/thundercls670/prebuilt/system/lib/modules/pmem_kernel_test.ko:system/lib/modules/pmem_kernel_test.ko \
+    device/lge/thundercls670/prebuilt/system/lib/modules/reset_modem.ko:system/lib/modules/reset_modem.ko \
     device/lge/thundercls670/prebuilt/system/lib/modules/wireless.ko:system/lib/modules/wireless.ko
 
-# Touchscreen config file
+# Input config files
 PRODUCT_COPY_FILES += \
-    device/lge/thundercls670/prebuilt/system/usr/idc/touch_mcs6000.idc:/system/usr/idc/touch_mcs6000.idc
+    device/lge/thundercls670/prebuilt/system/usr/idc/touch_mcs6000.idc:/system/usr/idc/touch_mcs6000.idc \
+    device/lge/thundercls670/prebuilt/system/usr/idc/thunder_keypad.idc:/system/usr/idc/thunder_keypad.idc \
+    device/lge/thundercls670/prebuilt/system/usr/idc/7k_handset.idc:/system/usr/idc/7k_handset.idc
+
+# Keylayouts (Matching to input configs)
+PRODUCT_COPY_FILES += \
+    device/lge/thundercls670/prebuilt/system/usr/keylayout/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl \
+    device/lge/thundercls670/prebuilt/system/usr/keylayout/7k_handset.kl:system/usr/keylayout/7k_handset.kl
 
 PRODUCT_PACKAGES += \
     librs_jni \
@@ -65,9 +75,7 @@ PRODUCT_PACKAGES += \
 PRODUCT_COPY_FILES += \
     packages/wallpapers/LivePicker/android.software.live_wallpaper.xml:/system/etc/permissions/android.software.live_wallpaper.xml
 
-# Keylayouts
-PRODUCT_COPY_FILES += \
-    device/lge/thundercls670/prebuilt/system/usr/keylayout/thunder_keypad.kl:system/usr/keylayout/thunder_keypad.kl
+
 
 # Board-specific init (does not support charging in "power off" state yet)
 #PRODUCT_COPY_FILES += \
